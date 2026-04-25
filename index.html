@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Detroit Architecture Summer Institute (DASI)</title>
+  <meta name="description" content="Detroit Architecture Summer Institute 2026. Place-based storytelling and independent research around Detroit’s automotive, labor, and creative infrastructures, histories, and sites." />
+
+  <style>
+    @font-face {
+      font-family: "Messina Sans";
+      src: url("fonts/MessinaSans-Regular.woff2") format("woff2");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Messina Sans";
+      src: url("fonts/MessinaSans-Italic.woff2") format("woff2");
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Messina Sans";
+      src: url("fonts/MessinaSans-Bold.woff2") format("woff2");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "Messina Sans";
+      src: url("fonts/MessinaSans-BoldItalic.woff2") format("woff2");
+      font-weight: 700;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    :root {
+      --bg: #d6d2c8;
+      --panel: #eeeae1;
+      --text: #111111;
+      --muted: #5b5852;
+      --line: #bcb6aa;
+      --accent: #f6d80f;
+      --max: 980px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Messina Sans", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.45;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-underline-offset: 0.15em;
+    }
+
+    a:hover {
+      opacity: 0.72;
+    }
+
+    .wrap {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 38px 0 56px;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .logo-block {
+      max-width: 880px;
+      margin-bottom: 30px;
+    }
+
+    .meta {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .hero-copy {
+      max-width: 48rem;
+      font-size: 1.12rem;
+      margin: 0 0 20px 0;
+    }
+
+    .hero-sub {
+      max-width: 36rem;
+      border-top: 1px solid var(--accent);
+      padding-top: 14px;
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin: 0 0 28px 0;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 14px 20px;
+      border: 1px solid var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.15s;
+    }
+
+    .button-primary {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .section-title {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 700;
+      margin: 0 0 24px 0;
+    }
+
+    p {
+      max-width: 48rem;
+      font-size: 1.06rem;
+      margin: 0 0 18px 0;
+    }
+
+    .large {
+      font-size: 1.16rem;
+      max-width: 52rem;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px 32px;
+      max-width: 52rem;
+    }
+
+    .detail {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+
+    .detail-label {
+      display: block;
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    ul {
+      max-width: 52rem;
+      margin: 0;
+      padding-left: 1.15rem;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.04rem;
+    }
+
+    .contact-box {
+      max-width: 48rem;
+      padding: 24px;
+      border: 1px solid var(--text);
+      background: var(--panel);
+    }
+
+    .team-name {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .role {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .footer {
+      padding: 24px 0 36px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    @media (max-width: 800px) {
+      section {
+        padding: 54px 0;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .details {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .large,
+      p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="logo-block">
+        <img src="resources/images/dasi-logo.png" alt="Detroit Architecture Summer Institute logo" />
+      </div>
+
+      <div class="meta">
+        Open Call: Detroit Architecture Summer Institute 2026<br />
+        June 25–28, 2026<br />
+        Wayne State University, Detroit
+      </div>
+
+      <p class="hero-copy">
+        Detroit Architecture Summer Institute critically engages Detroit’s automotive, labor, and creative infrastructures through interdisciplinary architecture and spatial frameworks.
+      </p>
+
+      <p class="hero-sub">
+        2026 Topic: Place-Based Storytelling &amp; Independent Research Around Detroit’s Automotive, Labor, and Creative Infrastructures, Histories and Sites.
+      </p>
+
+      <div class="buttons">
+        <a href="#application" class="button button-primary">Apply / Express Interest</a>
+        <a href="#contact" class="button">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">DASI 2026</h2>
+
+      <p>
+        For our inaugural session, we will host an intensive four-day workshop for students, researchers, and practitioners at Wayne State University and across Detroit, Michigan.
+      </p>
+
+      <p>
+        The cohort will critically and creatively engage Detroit sites and landmarks, including the Walter P. Reuther Library Archives on Wayne State University’s campus. We will wander and study sites together, independently, and in smaller groups based on individual interests.
+      </p>
+
+      <p>
+        We will produce a collective document archiving our studies and time together. Participants will have opportunities to advance their own research and creative practices through workshops with cartoonist Lauren Weinstein, DASI 2026 artist-in-residence, and archivists at the Walter P. Reuther Library, Archives of Labor and Urban Affairs.
+      </p>
+
+      <p>
+        DASI supports longer stays by those who wish to research or make creative work after the intensive workshop.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">Background</h2>
+
+      <p>
+        Detroit is future-oriented. Detroit asks us to design expansively and collectively, to reimagine our goals for the built environment beyond discrete sites, moments, or constituents.
+      </p>
+
+      <p>
+        Detroit residents, scholars, and workers have long addressed, on behalf of our entire nation, questions about resiliency, ingenuity, automation, being human, creative expression, social mobility, mutuality, and post-industrial realities.
+      </p>
+
+      <p>
+        DASI works to advance not only architectural and interdisciplinary spatial thinking, but also mutuality and care in architecture and built environment practices. We are dedicated to transforming the ways we practice in community with others in advancing more holistic, participatory, open, and mutual infrastructures for architectural thinking and practice in Detroit and beyond.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">Program Details</h2>
+
+      <div class="details">
+        <div class="detail">
+          <span class="detail-label">Applications Open</span>
+          Review begins May 10, 2026 / accepted until cohort full
+        </div>
+
+        <div class="detail">
+          <span class="detail-label">Summer Institute</span>
+          June 25–28, 2026
+        </div>
+
+        <div class="detail">
+          <span class="detail-label">Location</span>
+          Wayne State University<br />
+          4841 Cass Avenue<br />
+          Detroit, MI 48208
+        </div>
+
+        <div class="detail">
+          <span class="detail-label">Format</span>
+          Seminars, site visits, archival work, and workshops
+        </div>
+
+        <div class="detail">
+          <span class="detail-label">Cost</span>
+          $1,250. Scholarship consideration available.
+        </div>
+
+        <div class="detail">
+          <span class="detail-label">Cohort</span>
+          Small cohort of students, researchers, and practitioners
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">What DASI Provides</h2>
+
+      <ul>
+        <li>Four days of Detroit-based creative and collaborative exchange to advance collective and individual research and creative work.</li>
+        <li>Engagement with notable sites across metro Detroit.</li>
+        <li>Documentation workshop with archivists at the Walter P. Reuther Library, Archives of Labor and Urban Affairs.</li>
+        <li>Place-based storytelling workshop with artist-in-residence Lauren Weinstein.</li>
+        <li>Access to the Detroit Institute of Arts during stay.</li>
+        <li>All-day trip to Ford sites: The Henry Ford Museum, Ford Rouge Factory, and Greenfield Village.</li>
+        <li>Access to a shared workspace and computer lab at Wayne State University during and shortly after the session.</li>
+        <li>Dinners.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="application">
+    <div class="wrap">
+      <h2 class="section-title">Application Process</h2>
+
+      <p>
+        Send your materials as a PDF document to the DASI 2026 organizer at
+        <a href="mailto:gm4897@wayne.edu">gm4897@wayne.edu</a>. The review process begins May 10, 2026 and is open until the cohort is full.
+      </p>
+
+      <p>To be considered, please submit:</p>
+
+      <ul>
+        <li>A short letter expressing your interest in DASI, place-based research, and being in Detroit; your current practice or recent work; and how your work will be advanced by this experience.</li>
+        <li>CV, up to two pages.</li>
+        <li>Optional portfolio showing up to five projects.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">Team</h2>
+
+      <p class="team-name">Laura Foxman</p>
+      <p class="role">DASI 2026 Organizer / Assistant Professor of Design at Wayne State University</p>
+
+      <p>
+        Laura is a Detroit-based interdisciplinary architect/artist whose practice centers on civic and cultural infrastructures that advance public life. She leads the research-based practice We Are All Collage (WAAC), which operates at the intersection of architecture, design, and information culture.
+      </p>
+
+      <p class="team-name">Lauren Weinstein</p>
+      <p class="role">DASI 2026 Artist-in-Residence / Cartoonist and Artist</p>
+
+      <p>
+        Lauren R. Weinstein is a cartoonist, animator, and visual artist whose work addresses adolescence, motherhood, and mortality. Her books include <em>Girl Stories</em>, <em>Inside Vineyland</em>, and <em>Goddess of War</em>, and her comics have been published in <em>The New Yorker</em>, <em>Slate</em>, <em>The Paris Review</em>, <em>Bookforum</em>, and <em>The Guardian</em>.
+      </p>
+
+      <p class="team-name">Gretchen Wilkins</p>
+      <p class="role">DASI Co-Founder</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="section-title">Contact</h2>
+
+      <div class="contact-box">
+        <p>For questions, inquiries, and expressions of interest:</p>
+        <p><a href="mailto:gm4897@wayne.edu">gm4897@wayne.edu</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap">
+      Detroit Architecture Summer Institute (DASI)<br />
+      detroitarchitecturesummer.org
+    </div>
+  </footer>
+
+</body>
+</html>
